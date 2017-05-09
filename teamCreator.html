@@ -41,6 +41,7 @@
 		<div class="container">
 			<h1>Random Team Generator</h1>
 			<p><a class="btn btn-primary btn-lg" href="#" role="button" id="shuffleButton">Gets to Shufflin'</a></p>
+			<p><a class="btn btn-danger btn-lg" href="#" data-toggle="modal" data-target="#modal1" id="refreshButton" style="display:none;">Refresh to Run Again</a></p>
 		</div>	  
 	</div>
 	<div class="container">
@@ -113,7 +114,24 @@
 		</div>
 	</div>
 	
-	<!-- jquery -->
+	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="modal1Label">Are you sure you want to refresh?</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>If you refresh now you will loose the last shuffle forever.</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" id="confirmRefresh">Refresh Page</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+		<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -138,10 +156,17 @@
 				$('#'+currentTeam+'Panel').append('<div>'+pickAStudent()+'</div>');
 			}
 		};
+		$('#shuffleButton').hide();
+		$('#refreshButton').show();
 	}
 
 	$(document).ready(function(){
-		$('#shuffleButton').click(pickTeams());
+		$('#shuffleButton').click(function(){
+			pickTeams();	
+		});
+		$('#confirmRefresh').click(function(){
+			window.location.reload();
+		});
 	});
 	</script>
 </body>
