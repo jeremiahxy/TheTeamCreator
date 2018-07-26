@@ -50,7 +50,6 @@
 		#team12, #team12>.panel-heading {border-color: #aa6622;}
 		#team12>.panel-heading {background-color: #aa6622;}
 
-
 		input, textarea {
 			max-width: 50%;
 		}
@@ -67,11 +66,11 @@
 			<h1>Random Team Generator</h1>
 			<div class="form-group">
 				<label for="class-array">Comma Separated List of Student Names</label>
-				<textarea id="class-array" class="form-control" rows="7">Alabama, Alaska, American Samoa, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota</textarea>
+				<textarea id="class-array" class="form-control" rows="7">Alabama, Alaska, American Samoa, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota, Rhode Island, Puerto Rico, West Virginia</textarea>
 			</div>
 			<div class="form-group">
 				<label for="max-per-team">Max Per Team</label>
-				<input type="text" class="form-control" id="max-per-team" placeholder="#">
+				<input type="text" class="form-control" id="max-per-team" value="5">
 			</div>
 			<p><a class="btn btn-primary btn-lg" href="#" role="button" id="shuffleButton">Gets to Shufflin'</a></p>
 			<p><a class="btn btn-danger btn-lg" href="#" data-toggle="modal" data-target="#modal1" id="refreshButton" style="display:none;">Refresh to Run Again</a></p>
@@ -263,14 +262,14 @@
 
 		let pickTeams = function () {
 			let maxOnTeam = $('#max-per-team').val();
-			if (maxOnTeam) {
+			if (parseInt(maxOnTeam) > 0) {
 				let classValue = $('#class-array').val();
 				classArray = classValue.split(',')
 				buildTeam(maxOnTeam, 1);
 				$('#shuffleButton').hide();
 				$('#refreshButton').show();
 			} else {
-				alert("Please enter a max per team amount");
+				alert("Please enter a max per team amount greater than 0.");
 			}
 			
 		}
