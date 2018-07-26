@@ -52,13 +52,7 @@
 
 
 		input, textarea {
-    	color: #000;
-			width: 50%;
-			margin-top: 30px;
-		}
-		
-		textarea {
-			height: 200px;
+			max-width: 50%;
 		}
 		
 		.btn-lg {
@@ -71,9 +65,14 @@
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Random Team Generator</h1>
-			<textarea name="Class Array" id="class-array">Alabama, Alaska, American Samoa, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota</textarea>
-			<p>Put in a comma separated list of student names.</p>
-			<input type="text" name="Max per Team" id="max-per-team" placeholder="Max per Team">
+			<div class="form-group">
+				<label for="class-array">Comma Separated List of Student Names</label>
+				<textarea id="class-array" class="form-control" rows="7">Alabama, Alaska, American Samoa, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina, North Dakota</textarea>
+			</div>
+			<div class="form-group">
+				<label for="max-per-team">Max Per Team</label>
+				<input type="text" class="form-control" id="max-per-team" placeholder="#">
+			</div>
 			<p><a class="btn btn-primary btn-lg" href="#" role="button" id="shuffleButton">Gets to Shufflin'</a></p>
 			<p><a class="btn btn-danger btn-lg" href="#" data-toggle="modal" data-target="#modal1" id="refreshButton" style="display:none;">Refresh to Run Again</a></p>
 		</div>	  
